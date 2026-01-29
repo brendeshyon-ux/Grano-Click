@@ -8,246 +8,324 @@ html {
   --hgColor: #FDF5AA;
   --mainFamilyFont: "Outfit", sans-serif;
 
-
 }
 
-
-
-/*Encabezado*/
-h1 {
-  font-family: var(--title_font);
-  font-size: 5rem;
-  text-align: center;
-  color: var(--hgColor);
-  font-weight: 600;
-  text-shadow: none;
-  padding-top: 1rem;
-  text-shadow: 0 0 1rem var(--textColor),
-    0 0 2rem var(--primaryColor),
-    0 0 2rem var(--bgColor),
-    0 0 3rem var(--color-light),
-    0 0 4rem var(--hgColor);
-}
-
-/*Carrusel*/
-
-.carousel-inner {
+/* --- Nuevo Hero Premium --- */
+.hero-premium {
+  position: relative;
+  background: linear-gradient(to right, rgba(1, 28, 64, 0.7), rgba(1, 28, 64, 0.1)),
+    url('../assets/fondo4.jpg') center/cover;
+  min-height: 530px;
   border-radius: 2rem;
-  overflow: hidden;
-  width: 70%;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  /* Permitir que la imagen se salga */
+  padding: 2rem;
+  margin-top: 5rem;
+  /* Espacio para que no choque con el nav */
+  margin-bottom: 5.5rem !important;
+}
+
+.hero-inner {
+  width: 100%;
+  position: relative;
+}
+
+/* Estilo de Títulos en Hero */
+.hero-title {
+  font-size: 4.5rem !important;
+  text-align: left !important;
+  padding: 0 !important;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5) !important;
+  color: var(--hgColor) !important;
+}
+
+.hero-subtitle {
+  font-family: var(--mainFamilyFont);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* Botones del Hero */
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  /* Espacio uniforme entre ellos */
+  align-items: stretch;
+  /* Fuerza a que midan lo mismo de alto */
+  justify-content: flex-start;
+  /* En escritorio alineados a la izquierda */
+}
+
+.btn-hero-primary {
+  background-color: var(--color-light);
+  color: var(--primaryColor);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--hgColor);
+  transform: translateY(-3px);
+}
+
+.btn-hero-primary,
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 45px;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: none;
+  line-height: 1;
+  margin: 0 !important;
+}
+
+.btn-hero-outline {
+  background-color: var(--hgColor);
+  color: var(--primaryColor);
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-hero-outline:hover {
+  background-color: var(--color-light);
+  transform: translateY(-3px);
+}
+
+/* La Imagen Flotante del Hero */
+.hero-image-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.floating-hero-img {
+  width: 150%;
+  /* Más grande para que destaque */
+  max-width: 590px;
+  filter: drop-shadow(0 30px 20px rgba(0, 0, 0, 0.6));
+  position: absolute;
+  right: -160px;
+  /* La empuja hacia afuera a la derecha */
+  top: -40px;
+  /* La sube hacia afuera arriba */
+  transform: rotate(-5deg);
+  /* Ligera rotación para dinamismo */
+  transition: transform 0.5s ease;
+}
+
+.hero-premium:hover .floating-hero-img {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Banner de Bienvenida */
+.hero-minimal {
+  background: linear-gradient(rgba(1, 28, 64, 0.3), rgba(1, 28, 64, 0.8)),
+    url('../assets/FondoUno.png') center/cover;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
 }
 
 .category-divider {
   display: flex;
   align-items: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.5rem !important;
   padding-left: 0.93rem;
   padding-right: 0.93rem;
 }
 
-
 .category-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.8em;
-  color: var(--fouthColor);
-  margin-right: 0.85rem;
-  white-space: nowrap;
-  text-shadow: 0 0 3rem var(--primaryColor);
+  color: var(--hgColor);
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin: 0;
+  margin-right: 1rem;
 }
 
-.line-with-diamond {
-  flex-grow: 1;
-  height: 1px;
-  background-color: var(--textColor);
-  position: relative;
-}
-
-.line-with-diamond::after {
-  content: '';
-  position: absolute;
-  right: -5px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background-color: var(--textColor);
-}
-
-
-
-/*Cards*/
+/* Contenedor de la tarjeta */
 .product-card-wrapper {
   position: relative;
-  width: 20rem;
-  height: 100%;
-  margin: 2rem auto 0 auto;
-  padding-top: 18rem;
+  width: 100%;
+  max-width: 380px;
+  margin: 4rem auto 2rem auto;
+  /* Espacio arriba para que la imagen no choque */
+  transition: transform 0.3s ease;
+}
+
+/* La tarjeta física (el cuadro) */
+.product-info-card {
+  background: var(--primaryColor);
+  backdrop-filter: blur(20px);
+  /* Efecto cristal */
+  border-radius: 20px;
+  padding: 80px 20px 20px 20px;
+  /* Padding superior alto para dejar espacio a la imagen */
+  text-align: left;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
 
-.product-card-wrapper .product-image-floating {
+/* Imagen flotante sobresaliendo */
+.product-image-floating {
   position: absolute;
-  top: 0;
+  top: -85px;
+  /* Sube la imagen fuera de la tarjeta */
   left: 50%;
   transform: translateX(-50%);
-  width: 110%;
-  max-width: none;
-  height: 20rem;
-  object-fit: cover;
-  border-radius: 3rem;
-  box-shadow: 0rem 0rem 0.5rem 0rem;
-  z-index: 2;
-  color: rgb(14, 8, 43);
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  z-index: 10;
+  filter: drop-shadow(0 20px 15px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.product-card-wrapper .product-info-card {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-.product-card-wrapper .product-info-card .card-body {
-  padding: 2rem;
-  text-align: center;
-  background-color: var(--primaryColor);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 1rem;
-  background-image: url(../assets/Producto/Fondo_Cards.png);
-  flex-grow: 1;
+.product-card-wrapper:hover .product-image-floating {
+  transform: translateX(-50%) translateY(-10px) scale(1.05);
 }
 
-.product-info-card .card-title {
+/* Textos */
+.card-title {
+  font-family: 'Outfit', sans-serif;
   color: var(--hgColor);
-  font-family: var(--title_font);
-  text-transform: uppercase;
-  height: 4rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
-.product-info-card .card-text {
-  color: var(--textColor);
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 2rem;
-  font-family: var(--text_font);
-  height: 4rem;
-}
-
-
-.product-info-card .card-price {
-  color: var(--color-light);
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: var(--text_font);
-}
-
-#cards_cafe {
-    margin-bottom: 8rem; 
-}
-
-#cardsPostre {
-    margin-bottom: 10rem;
-}
-
-/*--- Estilos de (Contador y Botones) --- */
-
-.product-quantity-control {
-  width: calc(100% + 0.3rem);
+.card-text {
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  height: 40px;
   overflow: hidden;
-  position: absolute;
-  bottom: -1.5rem;
-  object-fit: cover;
-  border-radius: 2rem;
 }
 
-.product-quantity-control .btn {
-  background-color: var(--color-light);
-  border: none;
-  color: var(--primaryColor);
-  font-weight: bold;
-  padding: 0.5rem 0.83rem;
+/* Fila de precio y botón */
+.price-action-area {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  margin-top: auto;
 }
 
-.product-quantity-control .btn:hover {
-  background-color: var(--textColor);
-  color: var(--primaryColor);
+.card-price {
+  color: var(--hgColor);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.product-quantity-control .contador {
+/* Botón estilo "Add to cart" de la imagen */
+.btn-agregar-minimal {
   background-color: var(--hgColor);
   color: var(--primaryColor);
-  font-size: 1.2rem;
-  font-weight: bold;
-  width: 3rem;
-  flex: none;
-}
-
-.product-quantity-control .btn-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: contain;
-}
-
-
-/*--- Estilo del buscador --- */
-#buscadorBody {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
-}
-
-#buscadorBody form {
-  background-color: var(--primaryColor);
-  border-radius: 2.5rem;
-  padding: 0.3rem;
-  box-shadow: 0 0 10px var(--primaryColor);
-  border: 2px solid var(--fifthColor);
-}
-
-#search-input {
-  background-color: var(--textColor);
   border: none;
-  border-radius: 2.5rem 0 0 2.5rem;
-  color: var(--primaryColor);
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  flex-grow: 1;
-  margin-right: 0 !important;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 500;
+  transition: background 0.3s;
+  cursor: pointer;
 }
 
-#search-input::placeholder {
-  color: var(--primaryColor);
-  opacity: 0.7;
-}
-
-#buscadorBody button[type="submit"] {
-  background-color: var(--fifthColor);
-  color: var(--textColor);
-  border: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 0.75rem 2rem;
-  border-radius: 0 2.5rem 2.5rem 0;
-  transition: 0.3s ease;
-  margin-left: -1px;
-  box-shadow: inset -2px 0 0 0 var(--primaryColor);
-}
-
-#buscadorBody button[type="submit"]:hover {
+.btn-agregar-minimal:hover {
   background-color: var(--color-light);
-  color: var(--primaryColor);
+}
+
+/* Control de cantidad */
+.mini-control {
+  font-size: 0.8rem;
+  color: var(--hgColor);
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* Media Query para móviles */
+
+@media (max-width: 991px) {
+  .hero-premium {
+    margin-bottom: 8rem !important;
+    /* Espacio para que respire */
+    padding: 3rem 1rem;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem !important;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    /* Apila texto e imagen */
+  }
+
+  /* Centrar títulos y quitar márgenes laterales */
+  .hero-text-side {
+    text-align: center !important;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    text-align: center !important;
+    font-size: 2.5rem !important;
+    margin: 0 auto 1rem auto;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Botones del mismo tamaño y apilados */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100%;
+    margin-bottom: 1rem;
+    display: inline-flex;
+  }
+
+  .floating-hero-img {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 80%;
+    transform: rotate(0deg);
+    filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.4));
+  }
+
+  .category-title {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
 }
