@@ -37,7 +37,7 @@
       <section class="hero-section mt-4 mb-5">
         <div class="hero-grid">
           <div class="hero-card hero-left">
-            <img src="./assets/heroUno.png" alt="Latte Art" class="img-fluid rounded-img">
+            <img src="./assets/hero1.png" alt="Latte Art" class="img-fluid rounded-img">
           </div>
 
           <!-- HERO TARJETA DOS -->
@@ -73,57 +73,71 @@
           <!-- HERO TARJETA TRES -->
 
           <div class="hero-card hero-right">
-            <img src="./assets/PastelUno.png" alt="Pastel de chocolate" class="img-fluid rounded-img">
+            <img src="./assets/hero2.png" alt="Pastel de chocolate" class="img-fluid rounded-img">
           </div>
         </div>
       </section>
 
       <!-- Título de sección -->
-      <section class="section-title-container mb-4">
+      <section class="section-title-container mb-5">
         <h2>Nuestros clásicos: Los favoritos de la comunidad.</h2>
       </section>
 
       <!-- Productos -->
 
-      <section class="products-container p-4 p-md-5 mb-5">
-        <div class="products-layout">
+      <section class="classics-section mb-0">
+        <div class="container">
+          <div class="row g-4 justify-content-center align-items-end">
 
-          <div class="small-products-group">
-
-            <div class="product-card text-center">
-              <div class="img-box mb-3">
-                <img src="./assets/CafePremium.png" alt="Café Premium">
+            <div class="col-md-4">
+              <div class="classic-card">
+                <div class="classic-arch-img">
+                  <img src="./assets/hero3.png" alt="Café Espresso">
+                </div>
+                <div class="classic-content text-center">
+                  <h4 class="product-name">Café Espresso</h4>
+                  <p class="product-description">Intensidad pura y aroma penetrante en cada gota. El despertar perfecto
+                    para tu jornada creativa.</p>
+                  <button class="btn btn-details w-100"
+                    onclick="window.location.href='./html/productos.html#coffeTitle'">Disfrútame</button>
+                </div>
               </div>
-              <p class="product-name">Café <br> Espresso.</p>
-              <button class="btn btn-details" onclick="window.location.href='./html/productos.html#coffeTitle'">Disfrútame.</button>
-            </div>
-            <div class="product-card text-center">
-              <div class="img-box mb-3">
-                <img src="./assets/Capuchino.png" alt="Capuchino">
-              </div>
-              <p class="product-name">Capuchino con Espuma.</p>
-              <button class="btn btn-details" onclick="window.location.href='./html/productos.html#coffeTitle'">Saboréame.</button>
-            </div>
-            <div class="product-card text-center">
-              <div class="img-box mb-3">
-                <img src="./assets/Reposteria.png" alt="Repostería">
-              </div>
-              <p class="product-name">Repostería <br> Horneada.</p>
-              <button class="btn btn-details" onclick="window.location.href='./html/productos.html#reposteriaTitle'">Pruébame.</button>
             </div>
 
-          </div>
+            <div class="col-md-4">
+              <div class="classic-card">
+                <div class="classic-arch-img">
+                  <img src="./assets/hero4.png" alt="Capuchino con Espuma">
+                </div>
+                <div class="classic-content text-center">
+                  <h4 class="product-name">Capuchino con Espuma</h4>
+                  <p class="product-description">Equilibrio sedoso entre espresso y una nube de leche vaporizada. Un
+                    abrazo en cada sorbo.</p>
+                  <button class="btn btn-details w-100"
+                    onclick="window.location.href='./html/productos.html#coffeTitle'">Saboréame</button>
+                </div>
+              </div>
+            </div>
 
-          <div class="large-products-group">
-            <div class="large-img-box">
-              <img src="./assets/VariosPasteles.png" alt="Mesa de postres" class="img-fluid">
+            <div class="col-md-4">
+              <div class="classic-card">
+                <div class="classic-arch-img">
+                  <img src="./assets/hero5.png" alt="Repostería Horneada">
+                </div>
+                <div class="classic-content text-center">
+                  <h4 class="product-name">Repostería Horneada</h4>
+                  <p class="product-description">Texturas crujientes y sabores dulces recién salidos del horno. El
+                    complemento ideal de tu café.</p>
+                  <button class="btn btn-details w-100"
+                    onclick="window.location.href='./html/productos.html#reposteriaTitle'">Pruebame</button>
+                </div>
+              </div>
             </div>
-            <div class="large-img-box">
-              <img src="./assets/Panes.png" alt="Panes variados" class="img-fluid">
-            </div>
+
           </div>
         </div>
       </section>
+
     </main>
   </div>
 

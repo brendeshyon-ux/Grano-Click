@@ -1,12 +1,8 @@
-
-function verDetalles(producto) {
-    Swal.fire({
-        title: '¡Próximamente!',
-        text: `Estamos preparando la página de detalles para: ${producto}`,
-        icon: 'info',
-        confirmButtonText: 'Entendido',
-        confirmButtonColor: '#26658C',
-        background: '#023859',
-        color: '#ffffff'
-    });
+function irAProducto(seccionId) {
+    window.location.href = `./html/productos.html#${seccionId}`;
 }
+document.querySelectorAll('.btn-details').forEach(button => {
+    button.addEventListener('mouseover', () => {
+        console.log("Usuario interesado en: " + button.previousElementSibling.previousElementSibling.innerText);
+    });
+});

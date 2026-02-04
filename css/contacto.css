@@ -55,14 +55,13 @@
 .btn-custom-send {
     background-color: #FDF5AA;
     color: #011C40;
-    border-color: #FDF5AA;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 3.125rem;
+    width: 100%;
 }
 
 .btn-custom-send:hover {
-    background-color: #FFE066;
-    border-color: #FDF5AA;
-    color: #011C40;
+    background-color: #A7EBF2;
 }
 
 .btn-custom-send:focus,
