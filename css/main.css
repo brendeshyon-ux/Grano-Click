@@ -311,6 +311,35 @@ main {
     flex-direction: row;
     align-items: center;
   }
+
+  /* --- PRODUCTOS --- */
+
+  .classics-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 10px;
+  }
+  
+  .classic-card {
+    margin-top: 60px; /* Más espacio en móvil para que no choquen al apilarse */
+    max-width: 400px; /* Evita que las tarjetas sean gigantes en móvil */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .classic-arch-img {
+    height: 150px;
+  }
+
+  
+.classic-card {
+  border-radius: 13rem 13rem 3rem 3rem;
+}
+
+.classic-content {
+  border-radius: 3rem 3rem 2rem 2rem;
+}
+
 }
 
 @media (max-width:36rem) {
