@@ -135,7 +135,7 @@ main {
   background-color: var(--color-light);
   border-radius: 13rem 13rem 0rem 0rem;
   /* Forma de arco superior */
-  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  padding: 0.5rem 0.2rem 0rem 0.2rem;
   transition: transform 0.3s ease;
   margin-bottom: 0;
   box-shadow: 0 -10px 25px rgba(1, 28, 64, 0.3);
@@ -148,7 +148,7 @@ main {
 }
 
 .classic-arch-img {
-  background-color:var(--color-light);
+  background-color: var(--color-light);
   border-radius: 13rem 13rem 0 0;
   /* Arco interno */
   height: 160px;
@@ -157,7 +157,7 @@ main {
   align-items: center;
   padding-bottom: 1rem;
   position: relative;
-  
+
 }
 
 .classic-arch-img img {
@@ -167,7 +167,7 @@ main {
   object-fit: contain;
   position: absolute;
   bottom: 33px;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
 }
 
 .classic-content {
@@ -315,14 +315,16 @@ main {
   /* --- PRODUCTOS --- */
 
   .classics-section {
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     padding-right: 1rem;
     padding-top: 10px;
   }
-  
+
   .classic-card {
-    margin-top: 60px; /* Más espacio en móvil para que no choquen al apilarse */
-    max-width: 400px; /* Evita que las tarjetas sean gigantes en móvil */
+    margin-top: 60px;
+    /* Más espacio en móvil para que no choquen al apilarse */
+    max-width: 400px;
+    /* Evita que las tarjetas sean gigantes en móvil */
     margin-left: auto;
     margin-right: auto;
   }
@@ -331,14 +333,14 @@ main {
     height: 150px;
   }
 
-  
-.classic-card {
-  border-radius: 13rem 13rem 3rem 3rem;
-}
 
-.classic-content {
-  border-radius: 3rem 3rem 2rem 2rem;
-}
+  .classic-card {
+    border-radius: 13rem 13rem 3rem 3rem;
+  }
+
+  .classic-content {
+    border-radius: 3rem 3rem 2rem 2rem;
+  }
 
 }
 
@@ -374,7 +376,7 @@ main {
   font-family: var(--mainFamilyFont);
 
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 0 !important;  
 }
 
 .navbar-toggler {
@@ -382,25 +384,8 @@ main {
   border-radius: 50rem;
 }
 
-@media (max-width: 991.98px) {
-  .navbar {
-    position: relative;
-  }
-
-  #mainNavbarContent {
-    position: absolute;
-    top: 85%;
-    right: 0;
-    width: 10rem;
-    background-color: var(--primaryColor);
-    padding: 1rem;
-    border-radius: 1rem;
-    z-index: 1000;
-  }
-}
-
 .nav-link {
-  color: var(--textColor);
+  color: var(--primaryColor);
   font-weight: 600;
 }
 
@@ -409,13 +394,6 @@ main {
   font-weight: 600;
 }
 
-/*#carrito,
-a#carrito{
-  background-color: var(--hgColor);
-  border-radius: 0.5rem;
-  color: black;
-  box-shadow: 0 0.3rem 0.5rem -0.12rem black;
-}*/
 #carrito {
   background: transparent;
   padding: 0 !important;
@@ -489,6 +467,23 @@ a#carrito{
 
 .svgIcon path {
   fill: var(--primaryColor);
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    position: relative;
+  }
+
+  #mainNavbarContent {
+    position: absolute;
+    top: 85%;
+    right: 0;
+    width: 10rem;
+    background-color: var(--fifthColor);
+    padding: 1rem;
+    border-radius: 1rem;
+    z-index: 1000;
+  }
 }
 
 @media (max-width: 390px) {
