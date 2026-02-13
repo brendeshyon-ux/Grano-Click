@@ -356,10 +356,8 @@ main {
   }
 }
 
-
-
 /* ------------------------------
-   NAVBAR Y FOOTER
+   NAVBAR
    ------------------------------ */
 
 #navBar,
@@ -380,12 +378,12 @@ main {
 }
 
 .navbar-toggler {
-  background-color: var(--primaryColor);
-  border-radius: 50rem;
+  background-color: var(--secondaryColor);
+  border-radius: 5rem;
 }
 
 .nav-link {
-  color: var(--primaryColor);
+  color: var(--hgColor);
   font-weight: 600;
 }
 
@@ -432,9 +430,9 @@ main {
 
 /* Dropdown */
 .dropdown-menu {
-  background-color: var(--primaryColor);
+  background-color: var(--secondaryColor);
   border-radius: 0.75rem;
-  border: 0.06rem solid var(--hgColor);
+  border: 0.06rem solid var(--fifthColor);
   font-weight: 500;
 }
 
@@ -444,8 +442,8 @@ main {
 }
 
 .dropdown-item:hover {
-  background-color: var(--hgColor);
-  color: black;
+  background-color: var(--secondaryColor);
+  color: var(--color-light);
 }
 
 #accountDropdown {
@@ -461,13 +459,7 @@ main {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-.svgIcon {
-  width: 1.3rem;
-}
 
-.svgIcon path {
-  fill: var(--primaryColor);
-}
 
 @media (max-width: 991.98px) {
   .navbar {
@@ -479,7 +471,7 @@ main {
     top: 85%;
     right: 0;
     width: 10rem;
-    background-color: var(--fifthColor);
+    background-color: var(--secondaryColor);
     padding: 1rem;
     border-radius: 1rem;
     z-index: 1000;
@@ -522,8 +514,10 @@ main {
 
 }
 
+/* ------------------------------
+   ESTILOS DE FOOTER
+   ------------------------------ */
 
-/*================== ESTILOS DE FOOTER===============*/
 #footer-container {
   flex-shrink: 0;
   width: 100%;

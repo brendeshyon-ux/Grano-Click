@@ -234,7 +234,7 @@ html {
   margin: 0;
 }
 
-/* Botón estilo "Add to cart" de la imagen */
+/* Botón estilo "Agregar" */
 .btn-agregar-minimal {
   background-color: var(--hgColor);
   color: var(--primaryColor);
@@ -250,6 +250,31 @@ html {
 .btn-agregar-minimal:hover {
   background-color: var(--color-light);
 }
+
+/* Botón estilo "quitar" */
+
+.btn-quitar-minimal {
+  background-color: transparent;
+  color: var(--hgColor);
+  border: 1px solid var(--hgColor);
+  padding: 8px 20px;
+  border-radius: 20PX;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.btn-quitar-minimal:hover {
+  background-color: var(--hgColor);
+  color: var(--primaryColor);
+}
+
+.botones-cantidad {
+  display: flex;
+  align-items: center;
+}
+
 
 /* Control de cantidad */
 .mini-control {
@@ -275,7 +300,6 @@ html {
 
   .hero-inner {
     flex-direction: column;
-    /* Apila texto e imagen */
   }
 
   /* Centrar títulos y quitar márgenes laterales */

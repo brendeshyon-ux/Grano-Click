@@ -5,11 +5,8 @@ const btnSend = document.getElementById("send");
 const alertMessagesContainer = document.getElementById("alert-messages");
 
 const regs = {
-  email:
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-
-  password:
-    /^(?!.*(?:abc123|abcdef|abcd1234|123456|1234567|12345678|qwerty|asdfgh|zxcvbn|password|pass123|admin|usuario|welcome))(?!.*(.)\1\1)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%&*()_\-+=])(?!.*\s)[A-Za-z\d@#$%&*()_\-+=]{8,12}$/,
+  email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  password: /^(?!.*(?:abc123|abcdef|abcd1234|123456|1234567|12345678|qwerty|asdfgh|zxcvbn|password|pass123|admin|usuario|welcome))(?!.*(.)\1\1)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%&*()_\-+=])(?!.*\s)[A-Za-z\d@#$%&*()_\-+=]{8,12}$/
 };
 
 function cleanAlerts() {
@@ -35,20 +32,16 @@ function displayAlert(title, message, isSuccess = false) {
   cleanAlerts();
   const alertClass = isSuccess ? "alert-success-glow" : "alert-error-glow";
   const html = `
-    <div class="alert ${
-      isSuccess ? "alert-success" : "alert-danger"
-    } ${alertClass}">
+    <div class="alert ${isSuccess ? "alert-success" : "alert-danger"} ${alertClass}">
       <p class="custom-alert-title">${title}</p>
       <p><strong>${message}</strong></p>
     </div>`;
   if (alertMessagesContainer) {
     alertMessagesContainer.insertAdjacentHTML("beforeend", html);
-  } else {
-    console.log(`ALERTA: ${title} - ${message}`);
   }
 }
 
-function validateField(element, regex, errorField) {
+function validateField(element, regex) {
   const isValid = regex.test(element.value);
   applyGlowClass(element, isValid);
   return isValid;
@@ -56,57 +49,32 @@ function validateField(element, regex, errorField) {
 
 function validaPrevio() {
   let veredict = true;
+  const correoOk = validateField(localCorreo, regs.email);
+  const passOk = localPass.value.trim().length > 0;
 
-  const correoOk = validateField(localCorreo, regs.email, "Correo");
-  veredict = correoOk;
-
-  const passValue = localPass.value.trim();
-  const passOk = passValue.length > 0;
-
-  if (!passOk) {
-    applyGlowClass(localPass, false);
-  } else {
-    applyGlowClass(localPass, true);
-  }
-
-  veredict = veredict && passOk;
-
+  applyGlowClass(localPass, passOk);
+  veredict = correoOk && passOk;
   return veredict;
 }
 
-async function loginBackend() {
-  const correo = localCorreo.value.trim();
+function loginLocal() {
+  const correo = localCorreo.value.trim().toLowerCase();
   const password = localPass.value.trim();
 
-  try {
-    const res = await fetch("http://localhost:8080/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ correo: correo, contrasena: password }),
-    });
+  const localUsers = JSON.parse(localStorage.getItem("localUsers") || "[]");
 
-    if (!res.ok) {
-      const errText = await res.text();
-      throw new Error(errText || `HTTP ${res.status}`);
-    }
+  const usuarioEncontrado = localUsers.find(u => u.correo === correo && u.contrasena === password);
 
-    const data = await res.json();
+  if (usuarioEncontrado) {
+    localStorage.setItem("userName", usuarioEncontrado.nombres);
+    localStorage.setItem("userEmail", usuarioEncontrado.correo);
+    localStorage.setItem("userRole", usuarioEncontrado.rol || "user");
+    localStorage.setItem("authToken", "token-local-12345");
 
-    const token = data.accessToken;
-
-    if (!token) throw new Error("No llegó token en la respuesta");
-
-    localStorage.setItem("authToken", token);
-    localStorage.setItem("userEmail", correo);
-
-    displayAlert("Acceso Concedido", "Sesión iniciada correctamente.", true);
+    displayAlert("Acceso Concedido", `¡Bienvenido(a) ${usuarioEncontrado.nombres}!`, true);
     return true;
-  } catch (err) {
-    localStorage.removeItem("authToken");
-    displayAlert(
-      "Error de Acceso",
-      err.message || "No se pudo iniciar sesión."
-    );
+  } else {
+    displayAlert("Error de Acceso", "Correo o contraseña incorrectos.");
     return false;
   }
 }
@@ -115,30 +83,26 @@ function usuarioAceptado() {
   window.location.href = "../html/productos.html";
 }
 
-btnSend.addEventListener("click", async function (event) {
+btnSend.addEventListener("click", function (event) {
   event.preventDefault();
   cleanAlerts();
 
   if (!validaPrevio()) {
-    displayAlert(
-      "Error de Validación",
-      "Por favor, completa correctamente los campos requeridos."
-    );
+    displayAlert("Error de Validación", "Por favor, completa los campos correctamente.");
     return;
   }
 
-  const ok = await loginBackend();
+  const ok = loginLocal();
   if (ok) {
     setTimeout(() => {
       usuarioAceptado();
       form.reset();
-    }, 300);
+    }, 1000);
   }
 });
 
 localCorreo.addEventListener("input", () => {
-  validateField(localCorreo, regs.email, "Correo");
-  applyGlowClass(localPass, localPass.value.trim().length > 0);
+  validateField(localCorreo, regs.email);
 });
 
 localPass.addEventListener("input", () => {
