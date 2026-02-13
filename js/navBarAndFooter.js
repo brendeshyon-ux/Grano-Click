@@ -13,17 +13,15 @@ function getIconPath(page, iconName) {
 
 function getPagePaths(page, element) {
 
-  const isInsideHtmlFolder = window.location.pathname.includes("/html/");
-
-  let path = "";
-
- if (element === "index.html") {
-      path = isInsideHtmlFolder ? "../index.html" : "./index.html";
+  const repoName = "/Grano-Click"; 
+  
+  if (element === "index.html") {
+    return `${repoName}/index.html`;
   } else {
-      path = isInsideHtmlFolder ? `./${element}` : `./html/${element}`;
+    // Todas tus otras páginas están dentro de /html/
+    return `${repoName}/html/${element}`;
   }
 
-  return path;
 }
 
 function buildFooter(page) {
