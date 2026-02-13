@@ -13,16 +13,16 @@ function getIconPath(page, iconName) {
 
 function getPagePaths(page, element) {
 
-  const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+  const isInsideHtmlFolder = window.location.pathname.includes("/html/");
 
   let path = "";
-  if ((isIndex && element === "index.html") || (!isIndex && element !== "index.html")) {
-    path = `./${element}`;
-  } else if (!isIndex && element === "index.html") {
-    path = `../${element}`;
-  } else if (isIndex && element !== "index.html") {
-    path = `./html/${element}`;
+
+ if (element === "index.html") {
+      path = isInsideHtmlFolder ? "../index.html" : "./index.html";
+  } else {
+      path = isInsideHtmlFolder ? `./${element}` : `./html/${element}`;
   }
+
   return path;
 }
 
