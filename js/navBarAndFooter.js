@@ -12,12 +12,15 @@ function getIconPath(page, iconName) {
 }
 
 function getPagePaths(page, element) {
+
+  const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
   let path = "";
-  if ((page.id === "indexHere" && element === "index.html") || (page.id !== "indexHere" && element !== "index.html")) {
+  if ((isIndex && element === "index.html") || (!isIndex && element !== "index.html")) {
     path = `./${element}`;
-  } else if (page.id !== "indexHere" && element === "index.html") {
+  } else if (!isIndex && element === "index.html") {
     path = `../${element}`;
-  } else if (page.id == "indexHere" && element !== "index.html") {
+  } else if (isIndex && element !== "index.html") {
     path = `./html/${element}`;
   }
   return path;
@@ -36,7 +39,7 @@ function buildFooter(page) {
           <a href="${indexPage}" class="footer-brand" aria-label="Grano & Click">
             <img src="${iconPath}" alt="LogoFooter" height="35">
           </a>
-          <div class="footer-copyright">© <span id="footer-year">2025</span> Todos los derechos reservados.</div>
+          <div class="footer-copyright">© <span id="footer-year">2026</span> Todos los derechos reservados.</div>
         </div>
         <div class="col-md-6 d-flex flex-column align-items-center align-items-md-end">
           <nav class="footer-links d-flex flex-column flex-md-row gap-2" id="footer-nav">
@@ -57,8 +60,12 @@ document.addEventListener("click", (e) => {
   if (!linkPrivacidad) return;
   e.preventDefault();
 
-  const page = document.querySelector("div[id]");
-  let avisoPage = getPagePaths(page, "avisoDePrivacidad.html");
+  const currentPage = window.location.pathname.split("/").pop();
+  const isRoot = currentPage === "index.html" || currentPage === "";
+
+  let avisoPage = isRoot ? "./html/avisoDePrivacidad.html" : "./avisoDePrivacidad.html";
+
+  console.log("Estás en:", currentPage, "Ruta generada:", avisoPage);
 
   Swal.fire({
     title: '🔒 Aviso de Privacidad',
@@ -75,7 +82,7 @@ document.addEventListener("click", (e) => {
         </p>
     `,
     confirmButtonText: 'Cerrar',
-    confirmButtonColor: '#63addfff',
+    confirmButtonColor: '#011C40',
     background: '#023859',
     color: '#ffffff'
   });
@@ -154,8 +161,13 @@ document.addEventListener("click", (e) => {
   const btn = e.target.closest(".logout-btn");
   if (!btn) return;
   e.preventDefault();
+
   localStorage.clear();
-  window.location.href = getPagePaths(document.querySelector("div[id]"), "index.html");
+
+  const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+  const indexDestino = isIndex ? "./index.html" : "../index.html";
+
+  window.location.href = indexDestino;
 });
 
 window.addEventListener("load", function () {
