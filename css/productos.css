@@ -10,7 +10,14 @@ html {
 
 }
 
-/* --- Nuevo Hero Premium --- */
+#coffeTitle, 
+#reposteriaTitle {
+    scroll-margin-top: 100px; 
+}
+html {
+    scroll-behavior: smooth;
+}
+
 .hero-premium {
   position: relative;
   background: linear-gradient(to right, rgba(1, 28, 64, 0.7), rgba(1, 28, 64, 0.1)),

@@ -61,29 +61,29 @@ function renderizarCarritoSidebar() {
 }
 
 document.addEventListener("click", (e) => {
-    const id = e.target.getAttribute("data-id");
-    if (!id) return;
+  const id = e.target.getAttribute("data-id");
+  if (!id) return;
 
-    if (e.target.classList.contains("btn-plus")) {
-        if (window.agregarAlCarrito) window.agregarAlCarrito(id, false);
-        renderizarCarritoSidebar();
-    } 
-    else if (e.target.classList.contains("btn-minus")) {
-        if (window.quitarDelCarrito) window.quitarDelCarrito(id);
-        renderizarCarritoSidebar();
-    } 
-    else if (e.target.classList.contains("btn-eliminar-item")) {
-        let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
-        carrito = carrito.filter(item => item.id !== id);
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        renderizarCarritoSidebar();
-        if (window.actualizarContadoresVista) window.actualizarContadoresVista();
-    }
+  if (e.target.classList.contains("btn-plus")) {
+    if (window.agregarAlCarrito) window.agregarAlCarrito(id, false);
+    renderizarCarritoSidebar();
+  }
+  else if (e.target.classList.contains("btn-minus")) {
+    if (window.quitarDelCarrito) window.quitarDelCarrito(id);
+    renderizarCarritoSidebar();
+  }
+  else if (e.target.classList.contains("btn-eliminar-item")) {
+    let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+    carrito = carrito.filter(item => item.id !== id);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderizarCarritoSidebar();
+    if (window.actualizarContadoresVista) window.actualizarContadoresVista();
+  }
 });
 
 // --- UTILIDADES DE RUTAS ---
 function getPagePaths(page, element) {
-return `./${element}`; 
+  return `./${element}`;
 }
 function getIconPath(page, iconName) {
   return `./assets/${iconName}`;
@@ -125,13 +125,14 @@ function buildNavBar(page) {
               <li class="nav-item"><a class="nav-link" href="${logPage}">Iniciar sesión</a></li>
               <li class="nav-item me-3"><a class="nav-link" href="${signPage}">Registrarse</a></li>
             ` : `
-              <li class="nav-item dropdown me-3">
-                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" id="accountDropdown" data-bs-toggle="dropdown">
-                  <span>Hola, ${userName}</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item logout-btn" href="#">Cerrar sesión</a></li>
-                </ul>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" 
+              href="#" id="accountDropdown" data-bs-toggle="dropdown">
+              <span>Hola, ${userName}</span>
+              </a>
+              <ul class="dropdown-menu border-0 p-0 m-0">
+              <li><a class="dropdown-item logout-btn" href="#">Cerrar sesión</a></li>
+              </ul>
               </li>
             `}
             <li class="nav-item">
@@ -157,15 +158,59 @@ function buildNavBar(page) {
         </div>
     </div>`;
 
+
   document.getElementById("encabezado").innerHTML = navBarHTML;
   document.body.insertAdjacentHTML('beforeend', carritoHTML);
 
+  const logoutBtn = document.querySelector(".logout-btn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      Swal.fire({
+        title: "¿Cerrar sesión?",
+        text: "Tendrás que volver a ingresar para finalizar tus pedidos.",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Salir",
+        cancelButtonText: "Cancelar",
+        confirmButtonColor: "#FDF5AA",
+        cancelButtonColor: "#A7EBF2",
+        background: "#011C40",
+        color: "#FDF5AA"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("userName");
+          localStorage.removeItem("userRole");
+          localStorage.removeItem("userEmail");
+          window.location.href = indexPage;
+        }
+      });
+    });
+  }
+
   // Eventos del Carrito
-  document.getElementById('btn-abrir-carrito').onclick = (e) => { e.preventDefault(); abrirCarrito(); };
+  document.getElementById('btn-abrir-carrito').onclick = (e) => { 
+    e.preventDefault(); 
+    abrirCarrito(); 
+  };
   document.getElementById('cerrar-carrito').onclick = cerrarCarrito;
   document.getElementById('carrito-overlay').onclick = cerrarCarrito;
-  document.getElementById('btn-pagar-final').onclick = () => { window.location.href = logPage; };
-}
+
+  const btnPagarFinal = document.getElementById('btn-pagar-final');
+  if (btnPagarFinal) {
+    if (!isLogged) {
+      btnPagarFinal.innerText = "INICIA SESIÓN PARA PAGAR";
+    }
+    btnPagarFinal.onclick = () => {
+       if (isLogged) {
+         window.location.href = "./checkout.html";
+       } else {
+        window.location.href = logPage;
+       }
+    };
+  }
+} 
+
 
 function buildFooter(page) {
   const indexPage = getPagePaths(page, "index.html");

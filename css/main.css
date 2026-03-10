@@ -427,48 +427,84 @@ main {
   transform: translateY(-2px);
 }
 
-/* ------------------------------
-   Carrito Lateral (Offcanvas)
-   boton eliminar producto
-   ------------------------------ */
+/* --- boton eliminar producto --- */
 
-/* Botones de + y - */
 .btn-qty {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .btn-qty:hover {
-    background: #FDF5AA;
-    color: #011C40;
-    border-color: #FDF5AA;
+  background: #FDF5AA;
+  color: #011C40;
+  border-color: #FDF5AA;
 }
 
-/* Botón Eliminar con tus colores */
 .btn-eliminar-item {
-    background: none;
-    border: none;
-    color: #A7EBF2; /* Color inicial solicitado */
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    cursor: pointer;
-    padding: 0;
-    transition: color 0.3s ease;
+  background: none;
+  border: none;
+  color: #A7EBF2;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
 }
 
 .btn-eliminar-item:hover {
-    color: #FDF5AA; /* Color al pasar el cursor */
-    text-decoration: underline;
+  color: #FDF5AA;
+  text-decoration: underline;
+}
+
+/* botón cerrar sesión */
+.dropdown-menu {
+  background-color: var(--secondaryColor);
+  border: 1px solid #FDF5AA;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(167, 235, 242, 0.2);
+  margin: 5px !important;
+}
+
+.dropdown-item {
+  color: #FDF5AA !important;
+  font-family: 'Inter Tight', sans-serif;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(167, 235, 242, 0.3);
+  color: #A7EBF2 !important;
+}
+
+.logout-btn {
+  font-weight: bold;
+  color: var(--hgColor) !important;
+}
+
+.logout-btn:hover {
+  background-color: rgba(39, 41, 1, 0.1);
+  color: var(--hgColor) !important;
+}
+
+.swal2-confirm {
+  color: var(--primaryColor) !important;
+  font-weight: 700;
+}
+
+.swal2-cancel {
+  color: var(--primaryColor) !important;
+  font-weight: 700;
 }
 
 
@@ -666,5 +702,37 @@ main {
 
   .footer-links {
     align-items: center;
+  }
+
+  .navbar-nav .dropdown-menu {
+    background: transparent !important;
+    position: static !important;
+    float: none;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* EL BOTÓN DE CERRAR SESIÓN */
+  .dropdown-item.logout-btn {
+    width: auto !important;
+    display: inline-block !important;
+    margin: 1px !important;
+    padding: 8px 20px !important;
+    font-size: 0.85rem !important;
+    border: 1px solid var(--hgColor) !important;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .dropdown-item.logout-btn:hover {
+    background-color: rgba(39, 41, 1, 0.1) !important;
+    color: var(--hgColor) !important;
+    border-color: var(--color-light) !important;
+  }
+
+  .nav-item.dropdown {
+    width: 100%;
+    margin-bottom: 0.5rem !important;
   }
 }

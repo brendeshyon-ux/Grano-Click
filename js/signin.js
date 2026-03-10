@@ -76,11 +76,15 @@ function isAdult(birthDateString) {
 
 function getPasswordErrors(pass) {
   let missing = [];
-  if (pass.length < 8 || pass.length > 12) missing.push("poner de 8 a 12 caracteres");
-  if (!/[A-Z]/.test(pass)) missing.push("poner mayúsculas");
-  if (!/[a-z]/.test(pass)) missing.push("poner minúsculas");
-  if (!/\d/.test(pass)) missing.push("poner al menos un número");
-  if (!/[@#$%&*()_\-+=]/.test(pass)) missing.push("poner al menos un carácter especial");
+  if (pass.length < 8) {
+    missing.push("usar al menos 8 caracteres");
+  } else if (pass.length > 12) {
+    missing.push("no exceder los 12 caracteres (tienes " + pass.length + ")");
+  }
+  if (!/[A-Z]/.test(pass)) missing.push("una mayúscula");
+  if (!/[a-z]/.test(pass)) missing.push("una minúscula");
+  if (!/\d/.test(pass)) missing.push("un número");
+  if (!/[@#$%&*()_\-+=]/.test(pass)) missing.push("poner al menos un carácter especial @#$%&*()_\-+=");
   if (/\s/.test(pass)) missing.push("sin espacios");
   return missing;
 }
@@ -100,7 +104,7 @@ function validateInfo() {
 
   if (!userBirthDate.value || !isAdult(userBirthDate.value)) {
     applyGlowClass(userBirthDate, false);
-    errors.push("Fecha de Nacimiento (18-100 años)");
+    errors.push("Fecha de Nacimiento (más de 18 años)");
     veredict = false;
   } else {
     applyGlowClass(userBirthDate, true);
@@ -122,9 +126,9 @@ function validateInfo() {
     applyGlowClass(userConfirmPassword, true);
   }
 
-  if (userConfirmEmail.value !== userEmail.value) {
+  if (userConfirmEmail.value === "" || userConfirmEmail.value !== userEmail.value) {
     applyGlowClass(userConfirmEmail, false);
-    errors.push("Correos no coinciden");
+    errors.push("Los correo no coinciden");
     veredict = false;
   } else {
     applyGlowClass(userConfirmEmail, true);
@@ -132,6 +136,30 @@ function validateInfo() {
 
   return veredict;
 }
+
+const passwordRequirements = document.getElementById("password-requirements");
+
+userPassword.addEventListener("input", () => {
+    const pass = userPassword.value;
+    const errorsList = getPasswordErrors(pass);
+    const isValid = regs.password.test(pass);
+    
+    applyGlowClass(userPassword, isValid);
+
+    passwordRequirements.innerHTML = "";
+
+    if (pass.length > 0 && !isValid) {
+        let html = '<ul class="ps-3 mb-0" style="list-style: none; color: #ff4d4d;">';
+        errorsList.forEach(error => {
+            html += `<li><i class="bi bi-x-circle me-1"></i> Falta ${error}</li>`;
+        });
+        html += '</ul>';
+        passwordRequirements.innerHTML = html;
+    } else if (isValid) {
+        passwordRequirements.innerHTML = '<span style="color: #66ff66;"><i class="bi bi-check-circle me-1"></i> ¡Contraseña perfecta!</span>';
+    }
+});
+
 
 function registerUserLocal() {
   const localUsers = JSON.parse(localStorage.getItem("localUsers") || "[]");
@@ -173,7 +201,7 @@ function registerUserLocal() {
 
   form.reset();
   setTimeout(() => {
-    window.location.href = "../html/login.html";
+    window.location.href = "./login.html";
   }, 1500);
 }
 

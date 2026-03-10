@@ -80,7 +80,7 @@ function loginLocal() {
 }
 
 function usuarioAceptado() {
-  window.location.href = "../html/productos.html";
+  window.location.href = "./productos.html";
 }
 
 btnSend.addEventListener("click", function (event) {

@@ -48,6 +48,18 @@ function renderizarSeccion(data, contenedor) {
     }
     contenedor.innerHTML = html;
 }
+
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+    }
+});
+
 function agregarAlCarrito(id, mostrarAlerta = true) {
     let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
     const index = carrito.findIndex((item) => item.id === id);
