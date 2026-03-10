@@ -5,7 +5,7 @@
         "categoria": "cafe",
         "descripcion": "Un shot de café intenso, aromático y concentrado, perfecto para los amantes del sabor fuerte.",
         "precio": 34.50,
-        "foto": "../assets/Producto/cafe1.png"
+        "foto": "assets/Producto/cafe1.png"
     },
     {
         "id": "cafe_2",
@@ -13,7 +13,7 @@
         "categoria": "cafe",
         "descripcion": "Café suavizado con agua caliente, equilibrado y ligero, sin perder el carácter del café.",
         "precio": 54.50,
-        "foto": "../assets/Producto/cafe2.png"
+        "foto": "assets/Producto/cafe2.png"
     },
     {
         "id": "cafe_3",
@@ -21,7 +21,7 @@
         "categoria": "cafe",
         "descripcion": "Con leche vaporizada y espuma cremosa, con una textura suave y reconfortante.",
         "precio": 62.50,
-        "foto": "../assets/Producto/cafe3.png"
+        "foto": "assets/Producto/cafe3.png"
     },
     {
         "id": "cafe_4",
@@ -29,7 +29,7 @@
         "categoria": "cafe",
         "descripcion": "Combinado con leche cremosa vaporizada, ideal para un sabor suave y equilibrado.",
         "precio": 75.50,
-        "foto": "../assets/Producto/cafe4.png"
+        "foto": "assets/Producto/cafe4.png"
     },
     {
         "id": "cafe_5",
@@ -37,7 +37,7 @@
         "categoria": "cafe",
         "descripcion": "Con leche y chocolate líquido, una mezcla perfecta entre café y dulzura.",
         "precio": 79.50,
-        "foto": "../assets/Producto/cafe5.png"
+        "foto": "assets/Producto/cafe5.png"
     },
     {
         "id": "cafe_6",
@@ -45,7 +45,7 @@
         "categoria": "cafe",
         "descripcion": "Café tradicional mexicano con canela y notas especiadas, lleno de aroma y sabor artesanal.",
         "precio": 64.50,
-        "foto": "../assets/Producto/cafe6.png"
+        "foto": "assets/Producto/cafe6.png"
     },
     {
         "id": "past_1",
@@ -53,7 +53,7 @@
         "categoria": "pasteleria",
         "descripcion": "Rebanada de cheesecake clásico, suave, cremoso y con un toque irresistible de dulzura.",
         "precio": 54.50,
-        "foto": "../assets/Producto/reposteria1.png"
+        "foto": "assets/Producto/reposteria1.png"
     },
     {
         "id": "past_2",
@@ -61,7 +61,7 @@
         "categoria": "pasteleria",
         "descripcion": "Brownie casero, húmedo y chocolatoso, perfecto para los amantes del chocolate.",
         "precio": 44.50,
-        "foto": "../assets/Producto/reposteria2.png"
+        "foto": "assets/Producto/reposteria2.png"
     },
     {
         "id": "past_3",
@@ -69,7 +69,7 @@
         "categoria": "pasteleria",
         "descripcion": "Croissant crujiente por fuera y suave por dentro, relleno de chocolate fundido.",
         "precio": 54.50,
-        "foto": "../assets/Producto/reposteria3.png"
+        "foto": "assets/Producto/reposteria3.png"
     },
     {
         "id": "past_4",
@@ -77,7 +77,7 @@
         "categoria": "pasteleria",
         "descripcion": "Galleta suave y recién horneada, con chispas de chocolate derretido.",
         "precio": 29.50,
-        "foto": "../assets/Producto/reposteria4.png"
+        "foto": "assets/Producto/reposteria4.png"
     },
     {
         "id": "past_5",
@@ -85,7 +85,7 @@
         "categoria": "pasteleria",
         "descripcion": "Panqué esponjoso con sabor natural a naranja y trocitos de nuez.",
         "precio": 34.50,
-        "foto": "../assets/Producto/reposteria5.png"
+        "foto": "assets/Producto/reposteria5.png"
     },
     {
         "id": "past_6",
@@ -93,6 +93,6 @@
         "categoria": "pasteleria",
         "descripcion": "Rol suave y esponjoso con un aroma intenso a canela y un toque dulce irresistible.",
         "precio": 44.50,
-        "foto": "../assets/Producto/reposteria6.png"
+        "foto": "assets/Producto/reposteria6.png"
     }
 ]

@@ -2,7 +2,7 @@ const teamCards = document.getElementById("teamCards");
 let teamData = [];
 
 function getTeam() {
-  fetch("../data/sobreNosotros.json")
+  fetch("data/sobreNosotros.json")
     .then((res) => res.json())
     .then((data) => {
       teamData = data;
