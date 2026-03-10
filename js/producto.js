@@ -3,7 +3,7 @@ const cardsPostre = document.getElementById("cardsPostre");
 let productosData = [];
 
 function getProductos() {
-    fetch("../data/productos.json")
+    fetch("data/productos.json")
         .then((res) => {
             if (!res.ok) throw new Error("Error al cargar el JSON");
             return res.json();
