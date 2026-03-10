@@ -427,6 +427,50 @@ main {
   transform: translateY(-2px);
 }
 
+/* ------------------------------
+   Carrito Lateral (Offcanvas)
+   boton eliminar producto
+   ------------------------------ */
+
+/* Botones de + y - */
+.btn-qty {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-qty:hover {
+    background: #FDF5AA;
+    color: #011C40;
+    border-color: #FDF5AA;
+}
+
+/* Botón Eliminar con tus colores */
+.btn-eliminar-item {
+    background: none;
+    border: none;
+    color: #A7EBF2; /* Color inicial solicitado */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.btn-eliminar-item:hover {
+    color: #FDF5AA; /* Color al pasar el cursor */
+    text-decoration: underline;
+}
+
 
 /* ------------------------------
    ESTILOS DE FOOTER

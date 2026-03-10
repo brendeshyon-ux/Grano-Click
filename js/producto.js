@@ -33,9 +33,7 @@ function renderizarSeccion(data, contenedor) {
                         <p class="card-price">$${product.precio.toFixed(2)}</p>
 
                         <div class="botones-cantidad">
-                            <button class="btn-quitar-minimal btn-quitar" data-id="${product.id}">
-                                - Quitar
-                            </button>
+                           
                             <button class="btn-agregar-minimal add-cart" data-id="${product.id}">
                                 Agregar +
                             </button>
@@ -50,8 +48,7 @@ function renderizarSeccion(data, contenedor) {
     }
     contenedor.innerHTML = html;
 }
-
-function agregarAlCarrito(id) {
+function agregarAlCarrito(id, mostrarAlerta = true) {
     let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
     const index = carrito.findIndex((item) => item.id === id);
 
@@ -66,17 +63,22 @@ function agregarAlCarrito(id) {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarContadoresVista();
+ 
+    if (typeof renderizarCarritoSidebar === 'function') {
+        renderizarCarritoSidebar();
+    }
 
-    // Notificación de éxito
-    Swal.fire({
-        title: "¡Excelente elección!",
-        text: "Producto añadido al carrito",
-        icon: "success",
-        timer: 1200,
-        showConfirmButton: false,
-        background: "#011C40",
-        color: "#FDF5AA"
-    });
+    if (mostrarAlerta) {
+        Swal.fire({
+            title: "¡Excelente elección!",
+            text: "Producto añadido al carrito",
+            icon: "success",
+            timer: 1200,
+            showConfirmButton: false,
+            background: "#011C40",
+            color: "#FDF5AA"
+        });
+    }
 }
 
 // --- 4. LÓGICA PARA QUITAR ---
@@ -128,3 +130,7 @@ document.addEventListener("click", (e) => {
         quitarDelCarrito(id);
     }
 });
+
+window.agregarAlCarrito = agregarAlCarrito;
+window.quitarDelCarrito = quitarDelCarrito;
+window.actualizarContadoresVista = actualizarContadoresVista;

@@ -40,18 +40,46 @@ function renderizarCarritoSidebar() {
     const subtotal = item.precio * item.cantidad;
     total += subtotal;
     html += `
-            <div class="item-carrito-sidebar d-flex align-items-center">
-                <img src="${item.foto}" width="60" height="60" style="object-fit: cover; border-radius: 8px;" class="me-3">
-                <div class="flex-grow-1">
-                    <p class="mb-0 fw-bold text-light" style="font-size: 0.9rem;">${item.nombre}</p>
-                    <small class="text-white-50">${item.cantidad} x $${item.precio.toFixed(2)}</small>
-                </div>
-                <div class="text-end fw-bold" style="color: #FDF5AA;">$${subtotal.toFixed(2)}</div>
-            </div>`;
+      <div class="item-carrito-sidebar d-flex align-items-center mb-4">
+          <img src="${item.foto}" width="55" height="55" style="object-fit: cover; border-radius: 8px;" class="me-3">
+          <div class="flex-grow-1">
+              <p class="mb-0 fw-bold text-light" style="font-size: 0.9rem;">${item.nombre}</p>
+              <div class="d-flex align-items-center gap-2 mt-2">
+                  <button class="btn-qty btn-minus" data-id="${item.id}">-</button>
+                  <span class="text-white px-1">${item.cantidad}</span>
+                  <button class="btn-qty btn-plus" data-id="${item.id}">+</button>
+              </div>
+          </div>
+          <div class="text-end d-flex flex-column align-items-end">
+              <div class="fw-bold mb-1" style="color: #FDF5AA;">$${subtotal.toFixed(2)}</div>
+              <button class="btn-eliminar-item" data-id="${item.id}">Eliminar</button>
+          </div>
+      </div>`;
   });
   contenedor.innerHTML = html;
   totalTxt.innerText = `$${total.toFixed(2)}`;
 }
+
+document.addEventListener("click", (e) => {
+    const id = e.target.getAttribute("data-id");
+    if (!id) return;
+
+    if (e.target.classList.contains("btn-plus")) {
+        if (window.agregarAlCarrito) window.agregarAlCarrito(id, false);
+        renderizarCarritoSidebar();
+    } 
+    else if (e.target.classList.contains("btn-minus")) {
+        if (window.quitarDelCarrito) window.quitarDelCarrito(id);
+        renderizarCarritoSidebar();
+    } 
+    else if (e.target.classList.contains("btn-eliminar-item")) {
+        let carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+        carrito = carrito.filter(item => item.id !== id);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        renderizarCarritoSidebar();
+        if (window.actualizarContadoresVista) window.actualizarContadoresVista();
+    }
+});
 
 // --- UTILIDADES DE RUTAS ---
 function getPagePaths(page, element) {
@@ -138,7 +166,7 @@ function buildNavBar(page) {
   document.getElementById('btn-abrir-carrito').onclick = (e) => { e.preventDefault(); abrirCarrito(); };
   document.getElementById('cerrar-carrito').onclick = cerrarCarrito;
   document.getElementById('carrito-overlay').onclick = cerrarCarrito;
-  document.getElementById('btn-pagar-final').onclick = () => { window.location.href = signPage; };
+  document.getElementById('btn-pagar-final').onclick = () => { window.location.href = logPage; };
 }
 
 function buildFooter(page) {
@@ -168,7 +196,7 @@ function buildFooter(page) {
   if (footerContainer) footerContainer.innerHTML = footerHTML;
 }
 
-// --- EVENTO PRIVACIDAD (PESTAÑA NUEVA) ---
+// --- EVENTO PRIVACIDAD ---
 document.addEventListener("click", (e) => {
   const linkPrivacidad = e.target.closest(".info-aviso-privacidad");
   if (!linkPrivacidad) return;
