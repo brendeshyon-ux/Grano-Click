@@ -84,11 +84,11 @@ document.addEventListener("click", (e) => {
 // --- UTILIDADES DE RUTAS ---
 function getPagePaths(page, element) {
   const isRoot = page.id === "indexHere";
-  return isRoot ? `./${element}` : `../${element}`;
+  return isRoot ? `${element}` : `${element}`;
 }
 
 function getIconPath(page, iconName) {
-  return page.id === "indexHere" ? `./assets/${iconName}` : `../assets/${iconName}`;
+  return page.id === "indexHere" ? `assets/${iconName}` : `assets/${iconName}`;
 }
 
 // --- CONSTRUCCIÓN DE COMPONENTES ---

@@ -62,7 +62,7 @@ main {
    TEXTO CENTRO HERO
    ------------------------------ */
 .hero-center {
-  background-image: url('../assets/FondoUno.png');
+  background-image: url('assets/FondoUno.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -552,7 +552,7 @@ main {
 
   .hero-center {
     z-index: 5;
-    background-image: url('../assets/FondoUno.png') !important;
+    background-image: url('assets/FondoUno.png') !important;
     background-color: transparent !important;
     background-size: cover !important;
     background-position: center !important;
