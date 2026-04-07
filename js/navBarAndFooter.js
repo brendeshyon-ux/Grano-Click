@@ -91,7 +91,7 @@ function getIconPath(page, iconName) {
 
 // --- CONSTRUCCIÓN DE COMPONENTES ---
 function buildNavBar(page) {
-  const iconPath = getIconPath(page, "LogoBien.png");
+  const iconPath = getIconPath(page, "logo1-1.png");
   const signPage = getPagePaths(page, "signin.html");
   const productPage = getPagePaths(page, "productos.html");
   const indexPage = getPagePaths(page, "index.html");
@@ -108,7 +108,7 @@ function buildNavBar(page) {
   const navBarHTML = `
     <nav class="navbar navbar-dark navbar-expand-lg mt-2">
       <div class="container">
-        <a class="navbar-brand" href="${indexPage}"><img src="${iconPath}" alt="Logo" height="35" /></a>
+        <a class="navbar-brand" href="${indexPage}"><img src="${iconPath}" alt="Logo" height="20" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -214,7 +214,7 @@ function buildNavBar(page) {
 
 function buildFooter(page) {
   const indexPage = getPagePaths(page, "index.html");
-  const iconPath = getIconPath(page, "LogoFooter.png");
+  const iconPath = getIconPath(page, "logo1-1.png");
   const contactoPage = getPagePaths(page, "contacto.html");
 
   const footerHTML = `
@@ -222,7 +222,7 @@ function buildFooter(page) {
       <div class="container text-center text-md-start">
         <div class="row align-items-center">
           <div class="col-md-6 mb-3 mb-md-0">
-            <a href="${indexPage}"><img src="${iconPath}" alt="LogoFooter" height="35"></a>
+            <a href="${indexPage}"><img src="${iconPath}" alt="LogoFooter" height="20"></a>
             <div class="mt-2 opacity-75 small">© 2026 Grano & Click. Todos los derechos reservados.</div>
           </div>
           <div class="col-md-6 text-md-end">
