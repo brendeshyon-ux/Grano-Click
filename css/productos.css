@@ -8,14 +8,20 @@ html {
   --hgColor: #FDF5AA;
   --mainFamilyFont: "Outfit", sans-serif;
 
+  --fondoMedio: #0B415E;
+  --fondoOscuro: #0A182E;
+  --fondoCards: #15314F;
+
+  --card-shadow-inner: inset 8px 8px 15px rgba(0, 0, 0, 0.6),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+
+  scroll-behavior: smooth;
+
 }
 
-#coffeTitle, 
+#coffeTitle,
 #reposteriaTitle {
-    scroll-margin-top: 100px; 
-}
-html {
-    scroll-behavior: smooth;
+  scroll-margin-top: 100px;
 }
 
 .hero-premium {
