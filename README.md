@@ -1,6 +1,6 @@
 **Grano & Click** es una plataforma de E-commerce integral diseñada para una cafetería. El proyecto destaca por un enfoque de desarrollo "End-to-End", iniciando con la validación de la experiencia de usuario (UX) y culminando en una arquitectura de backend robusta y escalable.
 
-## 🎨 Proceso de Diseño (UX/UI)
+## Proceso de Diseño (UX/UI)
 Antes de escribir una sola línea de código, el proyecto fue concebido bajo la metodología **Design Thinking**:
 - **Figma:** Creación de prototipos de alta fidelidad.
 - **User Experience:** Definición de flujos de usuario, paleta de colores y arquitectura de información para asegurar una navegación intuitiva.
