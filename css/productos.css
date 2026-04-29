@@ -5,7 +5,7 @@ html {
   --fifthColor: #54ACBF;
   --color-light: #A7EBF2;
   --textColor: #FFFFFF;
-  --hgColor: #FDF5AA;
+  --hgColor: #F2E394;
   --mainFamilyFont: "Outfit", sans-serif;
 
   --fondoMedio: #0B415E;
@@ -27,16 +27,14 @@ html {
 .hero-premium {
   position: relative;
   background: linear-gradient(to right, rgba(1, 28, 64, 0.7), rgba(1, 28, 64, 0.1)),
-    url('../assets/fondo4.jpg') center/cover;
+    url('../assets/productos.jpg') center/cover;
   min-height: 530px;
   border-radius: 2rem;
   display: flex;
   align-items: center;
   overflow: visible;
-  /* Permitir que la imagen se salga */
   padding: 2rem;
   margin-top: 5rem;
-  /* Espacio para que no choque con el nav */
   margin-bottom: 5.5rem !important;
 }
 
@@ -45,7 +43,6 @@ html {
   position: relative;
 }
 
-/* Estilo de Títulos en Hero */
 .hero-title {
   font-size: 4.5rem !important;
   text-align: left !important;
@@ -68,23 +65,26 @@ html {
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  /* Espacio uniforme entre ellos */
   align-items: stretch;
-  /* Fuerza a que midan lo mismo de alto */
   justify-content: flex-start;
-  /* En escritorio alineados a la izquierda */
 }
 
 .btn-hero-primary {
-  background-color: var(--color-light);
-  color: var(--primaryColor);
+  background-color: var(--fondoOscuro);
+  color: var(--hgColor);
+  font-weight: 400 !important;
   border-radius: 50px;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--hgColor) !important;
   transition: all 0.3s ease;
-  border: none;
 }
 
 .btn-hero-primary:hover {
-  background-color: var(--hgColor);
+  color: var(--textColor);
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--textColor) !important;
   transform: translateY(-3px);
 }
 
@@ -107,17 +107,17 @@ html {
   background-color: var(--hgColor);
   color: var(--primaryColor);
   border-radius: 50px;
-  font-weight: 700;
+  font-weight: 400 !important;
   transition: all 0.3s ease;
   border: none;
 }
 
 .btn-hero-outline:hover {
-  background-color: var(--color-light);
+  background-color: var(--textColor);
   transform: translateY(-3px);
 }
 
-/* La Imagen Flotante del Hero */
+/* Imagen del Hero */
 .hero-image-side {
   position: relative;
   display: flex;
@@ -126,16 +126,12 @@ html {
 
 .floating-hero-img {
   width: 150%;
-  /* Más grande para que destaque */
   max-width: 590px;
   filter: drop-shadow(0 30px 20px rgba(0, 0, 0, 0.6));
   position: absolute;
   right: -160px;
-  /* La empuja hacia afuera a la derecha */
   top: -40px;
-  /* La sube hacia afuera arriba */
   transform: rotate(-5deg);
-  /* Ligera rotación para dinamismo */
   transition: transform 0.5s ease;
 }
 
@@ -143,7 +139,10 @@ html {
   transform: rotate(0deg) scale(1.05);
 }
 
-/* Banner de Bienvenida */
+/* ------------------------------
+   Banner de Bienvenida
+   ------------------------------ */
+
 .hero-minimal {
   background: linear-gradient(rgba(1, 28, 64, 0.3), rgba(1, 28, 64, 0.8)),
     url('../assets/FondoUno.png') center/cover;
@@ -167,40 +166,39 @@ html {
   font-family: 'Outfit', sans-serif;
   color: var(--hgColor);
   font-size: 2.7rem;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
   margin-right: 1rem;
 }
 
-/* Contenedor de la tarjeta */
+/* ------------------------------
+   Tarjeta de Producto
+   ------------------------------ */
+
 .product-card-wrapper {
   position: relative;
   width: 100%;
   max-width: 380px;
   margin: 4rem auto 2rem auto;
-  /* Espacio arriba para que la imagen no choque */
+  transition: transform 0.3s ease;
+  background-color: transparent;
+}
+
+.product-info-card {
+  background-color: var(--fondoCards);
+  backdrop-filter: blur(20px);
+  border-radius: 3rem;
+  padding: 5.5rem 2rem 1rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--card-shadow-inner);
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease;
 }
 
-/* La tarjeta física (el cuadro) */
-.product-info-card {
-  background: var(--primaryColor);
-  backdrop-filter: blur(20px);
-  /* Efecto cristal */
-  border-radius: 20px;
-  padding: 80px 20px 20px 20px;
-  /* Padding superior alto para dejar espacio a la imagen */
-  text-align: left;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Imagen flotante sobresaliendo */
 .product-image-floating {
   position: absolute;
   top: -85px;
-  /* Sube la imagen fuera de la tarjeta */
   left: 50%;
   transform: translateX(-50%);
   width: 200px;
@@ -220,13 +218,14 @@ html {
   font-family: 'Outfit', sans-serif;
   color: var(--hgColor);
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 
 .card-text {
   color: #FFFFFF;
   font-size: 0.9rem;
+  font-weight: 200;
   margin-bottom: 20px;
   height: 40px;
   overflow: hidden;
@@ -261,7 +260,7 @@ html {
 }
 
 .btn-agregar-minimal:hover {
-  background-color: var(--color-light);
+  background-color: var(--textColor);
 }
 
 /* Botón estilo "quitar" */
