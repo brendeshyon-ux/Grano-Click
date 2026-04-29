@@ -23,57 +23,45 @@
   <header id="encabezado"></header>
 
   <main>
-    <div id="contactoHere">
-      <section class="contact-section">
-        <div class="container h-100">
-          <div class="row h-100">
-            <div class="col-md-6 contact-img d-none d-md-block h-100">
-              <img src="assets/barista.png" alt="Barista preparando café" class="contact-img-element w-100 h-100">
-            </div>
-            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center h-100 px-3 px-md-0">
-              <div class="contact-box p-5">
-                <h2 class="text-center text-white mb-4">Contáctanos</h2>
-                <p class="text-white text-center mb-5">
-                  Si tienes consultas sobre nuestros productos, envíos o tu compra, estamos para atenderte.
-                  Completa el formulario y te responderemos a la brevedad.
-                </p>
-                <form id="contactForm">
-                  <div class="mb-4">
-                    <label for="nombre" class="form-label text-white">Nombre completo:</label>
-                    <input type="text" id="nombre" class="form-control custom-input" placeholder="Escribe tu nombre"
-                      required>
-                  </div>
-                  <div class="mb-4">
-                    <label class="form-label text-white">Correo electrónico:</label>
-                    <input type="email" id="correo" class="form-control custom-input" placeholder="correo@example.com"
-                      required>
-                  </div>
-                  <div class="mb-4">
-                    <label for="telefono" class="form-label text-white">Teléfono:</label>
-                    <input type="text" id="telefono" class="form-control custom-input" placeholder="Escribe tu número"
-                      required>
-                  </div>
- 
-                  <div class="mb-5">
-                    <label for="mensaje" class="form-label text-white">Mensaje:</label>
-                    <textarea id="mensaje" class="form-control custom-input" rows="4" placeholder="Escribe tu mensaje"
-                      required></textarea>
-                  </div>
- 
-                  <div class="text-center mt-4">
-                    <button id="enviar" class="btn btn-custom-send px-5 fw-semibold">Enviar</button>
-                  </div>
-                </form>
- 
-                <div id="respuesta" class="text-center mt-4 fw-semibold text-white" style="font-size: 1.2rem;"></div>
- 
-              </div>
-            </div>
- 
+  <div id="contactoHere">
+    <section class="contact-section">
+      <div class="container">
+        <div class="row contact-container-wrapper g-0"> 
+          <div class="col-md-6 contact-img d-none d-md-block">
+            <img src="assets/contactanos.jpg" alt="Granos de café" class="contact-img-element">
           </div>
-      </section>
-    </div>
-  </main>
+          <div class="col-12 col-md-6">
+            <div class="contact-box">
+              <h2 class="text-center mb-5" style="color: var(--hgColor); font-weight: 200; letter-spacing: 1px;">Contáctanos</h2>
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre:</label>
+                  <input type="text" id="nombre" class="form-control custom-input" placeholder="Escribe tu nombre" required>
+                </div>
+                <div class="mb-3">
+                  <label for="correo" class="form-label">Correo electrónico:</label>
+                  <input type="email" id="correo" class="form-control custom-input" placeholder="correo@example.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono:</label>
+                  <input type="text" id="telefono" class="form-control custom-input" placeholder="Escribe tu número" required>
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje:</label>
+                  <textarea id="mensaje" class="form-control custom-input" rows="4" placeholder="Escribe tu mensaje" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button id="enviar" class="btn btn-custom-send">Enviar</button>
+                </div>
+              </form>
+              <div id="respuesta" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
  
   <div id="footer-container"></div>
  

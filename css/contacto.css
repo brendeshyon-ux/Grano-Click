@@ -1,180 +1,117 @@
-.contact-box {
-    background-color: #011C40;
-    border-radius: 0.5rem;
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-    height: 100%;
-    overflow-y: auto;
+:root {
+    --textColor: #FFFFFF;
+    --hgColor: #F2E394;
+    --mainFamilyFont: "Outfit", sans-serif;
+    --fondoMedio: #0B415E;
+    --fondoOscuro: #0A182E;
+    --fondoCards: #15314F;
+    --card-shadow-inner: inset 8px 8px 15px rgba(0, 0, 0, 0.6),
+        inset -4px -4px 10px rgba(255, 255, 255, 0.05);
 }
 
 .contact-section {
-    height: 55rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
 }
 
-.contact-container {
-    background-color: #001f4d;
-    padding: 2rem;
-    display: flex;
-    gap: 2rem;
+.contact-container-wrapper {
+    background-color: var(--fondoCards) !important;
+    border-radius: 3rem;
+    overflow: hidden;
+    max-width: 80rem;
+    width: 100%;
 }
 
-.contact-image {
-    background-image: url('./assets/barista.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 37.5rem;
+/* Caja de contacto (Lado derecho) */
+.contact-box {
+    background-color: var(--fondoCards);
+    padding: 3rem !important;
+    height: 100%;
+    box-shadow: inset -0.5rem 0rem 2.5rem 0.3rem rgba(0, 0, 0, 0.6),
+        inset -1rem -1rem 2rem rgba(255, 255, 255, 0.05);
+}
+
+.contact-img {
+    padding: 0;
+    overflow: hidden;
 }
 
 .contact-img-element {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-.contact-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-
-}
-
+/* Estilo de los Inputs (Hundidos) */
 .custom-input {
-    background: white;
-    color: black;
-
+    background-color: var(--fondoCards) !important;
+    border: 1px solid var(--hgColor) !important;
+    border-radius: 0.8rem !important;
+    color: var(--textColor) !important;
+    padding: 0.8rem 1.2rem;
+    box-shadow: var(--card-shadow-inner);
+    transition: all 0.3s ease;
 }
 
-.btn-custom-send {
-    background-color: #FDF5AA;
-    color: #011C40;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    border-radius: 3.125rem;
-    width: 100%;
-    height: 2.9rem;
-    font-size: 1.11rem;
-    font-weight: 500;
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+    font-size: 0.9rem;
+}
 
+.form-label {
+    color: var(--hgColor) !important;
+    font-weight: 200;
+    margin-left: 10px;
+}
+
+/* Botón Enviar */
+.btn-custom-send {
+    background-color: var(--hgColor);
+    color: var(--fondoOscuro);
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-top: 20px;
 }
 
 .btn-custom-send:hover {
-    background-color: #A7EBF2;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(242, 227, 148, 0.3);
+    filter: brightness(1.1);
 }
 
-.btn-custom-send:focus,
-.btn-custom-send:active {
-    background-color: #FFE066 !important;
-    border-color: #011C40 !important;
-    box-shadow: 0 0 0 0.25rem #023859 !important;
+/* Alertas adaptadas */
+.custom-alert {
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background: var(--fondoCards);
+    box-shadow: var(--card-shadow-inner);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .alert-error-glow {
-    border: 0.063rem solid #ff4d4d;
-    box-shadow: 0 0 0.800rem rgba(255, 77, 77, 5), 0 0 0.3125rem rgba(255, 77, 77, 5) inset;
+    border-color: #ff4d4d !important;
+    color: #ff4d4d;
 }
 
 .alert-success-glow {
-    border: 0.063rem solid #66ff66;
-    box-shadow: 0 0 0.625rem rgba(102, 255, 102, 0.6), 0 0 0.3125rem rgba(102, 255, 102, 0.5) inset;
-}
-
-.custom-alert-title {
-    color: #FDF5AA;
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.custom-alert p strong {
-    color: #FDF5AA;
-}
-
-.custom-alert {
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    color: #A7EBF2;
-}
-
-.custom-alert-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 0;
-    display: inline-block;
-    text-align: left;
-}
-
-.custom-alert-list li {
-    margin-bottom: 0.25rem;
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.custom-alert-list li::before {
-    content: '•';
-    color: #FDF5AA;
-    font-weight: bold;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.contact-section {
-    min-height: 55rem;
-    padding-top: 3rem;
-    padding-bottom: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-color: #66ff66 !important;
+    color: #66ff66;
 }
 
 .input-invalid-glow {
-    border: 0.12rem solid #ff4d4d !important;
-    box-shadow: 0 0 0.3125rem rgba(255, 77, 77, 0.9);
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1.5px solid #ff4d4d !important;
 }
 
 .input-valid-glow {
-    border: 0.12rem solid #66ff66 !important;
-    box-shadow: 0 0 0.3125rem rgba(102, 255, 102, 0.7);
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-@media (max-width: 48rem) {
-    .contact-image {
-        display: none;
-    }
-}
-
-.logo-img {
-    width: 6.25rem;
-    height: auto;
-}
-
-.contact-image {
-    background-image: url('../assets/barista.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 37.5rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-}
-
-.contact-section {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    min-height: auto;
-}
-
-.contact-box {
-    padding: 1.5rem !important;
+    border: 1.5px solid #66ff66 !important;
 }

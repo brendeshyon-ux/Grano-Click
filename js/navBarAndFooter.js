@@ -199,7 +199,7 @@ function buildNavBar(page) {
   const btnPagarFinal = document.getElementById('btn-pagar-final');
   if (btnPagarFinal) {
     if (!isLogged) {
-      btnPagarFinal.innerText = "INICIA SESIÓN PARA PAGAR";
+      btnPagarFinal.innerText = "Inicia sesión para pagar.";
     }
     btnPagarFinal.onclick = () => {
        if (isLogged) {
