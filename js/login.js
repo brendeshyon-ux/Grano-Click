@@ -32,9 +32,14 @@ function displayAlert(title, message, isSuccess = false) {
   cleanAlerts();
   const alertClass = isSuccess ? "alert-success-glow" : "alert-error-glow";
   const html = `
-    <div class="alert ${isSuccess ? "alert-success" : "alert-danger"} ${alertClass}">
-      <p class="custom-alert-title">${title}</p>
-      <p><strong>${message}</strong></p>
+    <div class="alert ${alertClass}" style="
+      background: var(--fondoCards); 
+      box-shadow: var(--card-shadow-inner); 
+      border-radius: 1.5rem; 
+      padding: 1.2rem; 
+      border: 1px solid rgba(255,255,255,0.1);">
+      <p style="color: #ff4d4d; font-weight: 600; margin-bottom: 5px;">${title}</p>
+      <p style="color: #ff4d4d; font-size: 0.9rem; margin: 0;">${message}</p>
     </div>`;
   if (alertMessagesContainer) {
     alertMessagesContainer.insertAdjacentHTML("beforeend", html);
