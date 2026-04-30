@@ -20,107 +20,105 @@
 
     <header id="encabezado"></header>
 
-    <main>
-        <h1 class="form-title text-center mb-2 mt-3">Registrar nuevo usuario</h1>
+    <main class="main-content d-flex align-items-center justify-content-center">
         <div class="container">
-            <div class="form-signin">
-                <form action="" id="signinForm">
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userName" style="font-size: 1.5rem" class="frmlbl">Nombre:</label>
-                            <input type="text" placeholder="Nombre" class="frminp" id="userName" required />
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userLastName" style="font-size: 1.5rem" class="frmlbl">Apellido:</label>
-                            <input type="text" placeholder="Apellido" class="frminp" id="userLastName" required />
-                        </div>
+            <div class="row login-container-wrapper g-0">
+                <div class="col-md-4 login-img d-none d-md-block">
+                    <img src="assets/registrarse.jpg" alt="Granos de café" class="login-img-element">
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <div class="form-signin">
+                        <h1 class="text-center mb-4">Registrar nuevo usuario</h1>
+
+                        <form id="signinForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="userName" class="frmlbl">Nombre:</label>
+                                        <input type="text" placeholder="Escribe tu nombre" class="frminp" id="userName"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userLastName" class="frmlbl">Apellido:</label>
+                                        <input type="text" placeholder="Escribe tu apellido" class="frminp"
+                                            id="userLastName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userEmail" class="frmlbl">Correo electrónico:</label>
+                                        <input type="email" placeholder="correo@example.com" class="frminp"
+                                            id="userEmail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userConfirmEmail" class="frmlbl">Confirmar correo:</label>
+                                        <input type="email" placeholder="correo@example.com" class="frminp"
+                                            id="userConfirmEmail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userPhone" class="frmlbl">Teléfono:</label>
+                                        <input type="text" placeholder="Escribe tu teléfono" class="frminp"
+                                            id="userPhone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userBirthDate" class="frmlbl">Fecha de nacimiento:</label>
+                                        <input type="date" class="frminp" id="userBirthDate" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="userCounty" class="frmlbl">Municipio:</label>
+                                        <input type="text" placeholder="Escribe tu municipio" class="frminp"
+                                            id="userCounty" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userNeighborhood" class="frmlbl">Colonia:</label>
+                                        <input type="text" placeholder="Escribe tu colonia" class="frminp"
+                                            id="userNeighborhood" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userStreet" class="frmlbl">Calle y número:</label>
+                                        <input type="text" placeholder="Escribe tu calle y número" class="frminp"
+                                            id="userStreet" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userPostalCode" class="frmlbl">Código postal:</label>
+                                        <input type="text" placeholder="Escribe tu código postal" class="frminp"
+                                            id="userPostalCode" maxlength="5" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userPassword" class="frmlbl">Contraseña:</label>
+                                        <input type="password" placeholder="Escribe tu contraseña" class="frminp"
+                                            id="userPassword" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="userConfirmPassword" class="frmlbl">Confirmar contraseña:</label>
+                                        <input type="password" placeholder="Confirma tu contraseña" class="frminp"
+                                            id="userConfirmPassword" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4 g-3">
+                                <div class="col-6">
+                                    <button class="Btn" id="btnSignin" type="button">Registrarse</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="Btn" id="btnCancel" type="button"
+                                        style="filter: contrast(0.8);">Limpiar</button>
+                                </div>
+                            </div>
+
+                            <div class="nota-container mt-4">
+                                <p id="password-requirements" class="mb-2"></p>
+                                <p class="nota-texto">* Se debe ser mayor a 18 años.</p>
+                                <p class="nota-texto">* La contraseña debe tener 8–12 caracteres e incluir: mayúsculas,
+                                    minúsculas, números y un carácter especial (@#$%&*()_\-+=).</p>
+                            </div>
+
+                            <div id="alert-messages" class="mt-3"></div>
+                        </form>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userEmail" style="font-size: 1.5rem" class="frmlbl">Correo:</label>
-                            <input type="email" placeholder="ejemplo@dominio.com" class="frminp" id="userEmail"
-                                required />
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userConfirmEmail" style="font-size: 1.5rem" class="frmlbl">Confirmar
-                                Correo:</label>
-                            <input type="email" placeholder="ejemplo@dominio.com" class="frminp" id="userConfirmEmail"
-                                required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userPhone" style="font-size: 1.5rem" class="frmlbl">Teléfono:</label>
-                            <input type="text" placeholder="Teléfono" class="frminp" id="userPhone" required />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label for="userBirthDate" style="font-size: 1.5rem" class="frmlbl">Fecha de
-                                Nacimiento:</label>
-                            <input type="date" class="frminp" id="userBirthDate" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userCounty" style="font-size: 1.5rem" class="frmlbl">Municipio:</label>
-                            <input type="text" placeholder="Municipio" class="frminp" id="userCounty" required />
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userNeighborhood" style="font-size: 1.5rem" class="frmlbl">Colonia:</label>
-                            <input type="text" placeholder="Colonia" class="frminp" id="userNeighborhood" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userStreet" style="font-size: 1.5rem" class="frmlbl">Calle y número:</label>
-                            <input type="text" placeholder="Calle Número" class="frminp" id="userStreet" required />
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userPostalCode" style="font-size: 1.5rem" class="frmlbl">Código Postal:</label>
-                            <input type="text" placeholder="Código Postal" class="frminp" id="userPostalCode"
-                                maxlength="5" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userPassword" style="font-size: 1.5rem" class="frmlbl">Contraseña:</label>
-                            <input type="password" placeholder="Crea tu contraseña" class="frminp" id="userPassword" required />
-                            <div id="password-requirements" style="font-size: 0.9rem; min-height: 20px;" class="mt-1"></div>
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <label for="userConfirmPassword" style="font-size: 1.5rem" class="frmlbl">Confirmar
-                                Contraseña:</label>
-                            <input type="password" placeholder="Confirmar Contraseña" class="frminp"
-                                id="userConfirmPassword" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12 col-md-6 column-signin">
-                            <button class="Btn" type="button" id="btnSignin">
-                                REGISTRAR
-                                <svg class="svgIcon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                    class="bi bi-door-open" viewBox="0 0 16 16">
-                                    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1" />
-                                    <path
-                                        d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z" />
-                                </svg></button>
-                        </div>
-                        <div class="col-12 col-md-6 column-signin">
-                            <button class="Btn2" type="button" id="btnCancel">
-                                LIMPIAR
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-backspace" viewBox="0 0 16 16">
-                                    <path
-                                        d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
-                                    <path
-                                        d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
-                                </svg></button>
-                        </div>
-                    </div>
-                    <p id="nota"><i>*Se debe ser mayor a 18 años.<br> * La contraseña debe tener 8–12 caracteres e
-                            incluir: <br>
-                            mayúsculas, minúsculas, números y al menos un carácter especial (@#$%&*()_\-+=).</i></p>
-                </form>
-                <div id="alert-messages" class="mt-4"></div>
+                </div>
+
             </div>
         </div>
     </main>

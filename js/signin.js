@@ -13,7 +13,6 @@ const userPassword = document.getElementById("userPassword");
 const userConfirmPassword = document.getElementById("userConfirmPassword");
 const btnSignin = document.getElementById("btnSignin");
 const btnCancel = document.getElementById("btnCancel");
-
 const alertMessages = document.getElementById("alert-messages");
 let errors = [];
 
